@@ -10,6 +10,15 @@
     tools:context="com.zuccessful.atlas.AtlasActivityFragment">
 
     <TextView
+        android:id="@+id/playerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Player 1"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
@@ -33,12 +42,14 @@
         android:orientation="horizontal">
 
         <EditText
+            android:id="@+id/answerText"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
             android:hint="Enter Answer" />
 
         <Button
+            android:id="@+id/submitWord"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -46,13 +57,13 @@
     </LinearLayout>
 
     <TextView
-        android:layout_weight="1"
-        android:layout_marginBottom="20dp"
-        android:gravity="bottom"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:text="Entry has already been used"/>
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:text="Entry has already been used" />
 
 
 </LinearLayout>
