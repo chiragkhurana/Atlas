@@ -27,31 +27,37 @@ public class AtlasDbHelper extends SQLiteOpenHelper {
                 ");";
         db.execSQL(query);
 
-        ContentValues[] values = new ContentValues[5];
+        ContentValues values = new ContentValues();
+        values.put(CountriesEntry.COLUMN_COUNTRY_NAME, "India");
+        values.put(CountriesEntry.COLUMN_CAPITAL, "Delhi");
+        values.put(CountriesEntry.COLUMN_CALLING_CODE, "91");
+        db.insert(CountriesEntry.TABLE_NAME, null, values);
 
-        values[0].put(CountriesEntry.COLUMN_COUNTRY_NAME, "India");
-        values[0].put(CountriesEntry.COLUMN_CAPITAL, "Delhi");
-        values[0].put(CountriesEntry.COLUMN_CALLING_CODE, "91");
+        ContentValues values2 = new ContentValues();
+        values2.put(CountriesEntry.COLUMN_COUNTRY_NAME, "Germany");
+        values2.put(CountriesEntry.COLUMN_CAPITAL, "Belgium");
+        values2.put(CountriesEntry.COLUMN_CALLING_CODE, "94");
+        db.insert(CountriesEntry.TABLE_NAME, null, values2);
 
-        values[1].put(CountriesEntry.COLUMN_COUNTRY_NAME, "Australia");
-        values[1].put(CountriesEntry.COLUMN_CAPITAL, "Sydney");
-        values[1].put(CountriesEntry.COLUMN_CALLING_CODE, "44");
-
-        values[2].put(CountriesEntry.COLUMN_COUNTRY_NAME, "Germany");
-        values[2].put(CountriesEntry.COLUMN_CAPITAL, "Belgium");
-        values[2].put(CountriesEntry.COLUMN_CALLING_CODE, "94");
-
-        values[3].put(CountriesEntry.COLUMN_COUNTRY_NAME, "France");
-        values[3].put(CountriesEntry.COLUMN_CAPITAL, "Italy");
-        values[3].put(CountriesEntry.COLUMN_CALLING_CODE, "56");
-
-        values[4].put(CountriesEntry.COLUMN_COUNTRY_NAME, "Pakistan");
-        values[4].put(CountriesEntry.COLUMN_CAPITAL, "Karachi");
-        values[4].put(CountriesEntry.COLUMN_CALLING_CODE, "91");
-
-        for (int i = 0; i < 5; i++) {
-            db.insert(CountriesEntry.TABLE_NAME, null, values[i]);
-        }
+//        values[1].put(CountriesEntry.COLUMN_COUNTRY_NAME, "Australia");
+//        values[1].put(CountriesEntry.COLUMN_CAPITAL, "Sydney");
+//        values[1].put(CountriesEntry.COLUMN_CALLING_CODE, "44");
+//
+//        values[2].put(CountriesEntry.COLUMN_COUNTRY_NAME, "Germany");
+//        values[2].put(CountriesEntry.COLUMN_CAPITAL, "Belgium");
+//        values[2].put(CountriesEntry.COLUMN_CALLING_CODE, "94");
+//
+//        values[3].put(CountriesEntry.COLUMN_COUNTRY_NAME, "France");
+//        values[3].put(CountriesEntry.COLUMN_CAPITAL, "Italy");
+//        values[3].put(CountriesEntry.COLUMN_CALLING_CODE, "56");
+//
+//        values[4].put(CountriesEntry.COLUMN_COUNTRY_NAME, "Pakistan");
+//        values[4].put(CountriesEntry.COLUMN_CAPITAL, "Karachi");
+//        values[4].put(CountriesEntry.COLUMN_CALLING_CODE, "91");
+//
+//        for (int i = 0; i < 5; i++) {
+//            db.insert(CountriesEntry.TABLE_NAME, null, values[i]);
+//        }
     }
 
     @Override
