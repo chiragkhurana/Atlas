@@ -6,17 +6,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.zuccessful.atlas.data.AtlasDbHelper;
-
 public class AtlasActivity extends AppCompatActivity implements AtlasActivityFragment.CallbackInterface {
 
     FragmentManager manager;
     private String AF1_TAG = "AtlasFrag1";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_atlas);
+
 
         manager = getSupportFragmentManager();
 

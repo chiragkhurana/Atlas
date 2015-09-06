@@ -23,6 +23,7 @@ public class AtlasActivityFragment extends Fragment {
     private Button submitWord;
     private EditText answerText;
     private String enteredWord;
+    private String prevWord = "Game Starts";
     private AtlasDbHelper dbHelper;
 
     public AtlasActivityFragment() {
@@ -49,9 +50,10 @@ public class AtlasActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 answerText.onEditorAction(EditorInfo.IME_ACTION_DONE);
-                enteredWord = answerText.getText().toString();
-                String enteredWordFormat = enteredWord.trim().toLowerCase();
-                if (true) {                                     //dbHelper.checkWord(enteredWordFormat)
+
+                enteredWord = answerText.getText().toString().trim();
+                String enteredWordFormat = enteredWord.toLowerCase();
+                if (checkValid(enteredWordFormat)) {                                     //dbHelper.checkWord(enteredWordFormat)
                     answerText.setText("");
                     prev.sendText(playerTurn, enteredWord);
                 } else {
@@ -61,14 +63,33 @@ public class AtlasActivityFragment extends Fragment {
             }
         });
 
-        prevWordText.setText("Game Starts");
+        prevWordText.setText(prevWord);
         return view;
+    }
+
+    //Check validity of entered text
+    private boolean checkValid(String entry) {
+        boolean valid = false;
+
+
+        if (prevWord.equals("Game Starts")) {
+            valid = true;
+        }
+
+        if (prevWord == null) {
+            valid = false;
+        } else if ((entry.charAt(0)) == prevWord.charAt(prevWord.length() - 1)) {
+            if (true) {           //check database
+                valid = true;
+            }
+        }
+        return valid;
     }
 
     public void setPrevText(int playerNum, String text) {
         playerTurn = playerNum;
-
-        prevWordText.setText(text);
+        prevWord = text;
+        prevWordText.setText(prevWord);
         playerText.setText("Player " + (playerTurn));
     }
 
